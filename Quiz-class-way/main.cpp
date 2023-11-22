@@ -9,6 +9,9 @@
 #include <cmath>
 #include <sstream>
 #include <string>
+#include <limits>
+#include <ncurses.h>
+#include <unistd.h>
 
 
 using namespace std;
@@ -79,12 +82,24 @@ public: void Circle_Area(string subject){
 
 int main (){
     shape c = shape();
-    c.setRadius(10);
+    double m ;
+    cout << "Enter the size of radius please : " ;
+    cin >> m ;
+    c.setRadius(m);
     cout << "Circle radius: " << c.getRadius();
-    c.Circle_Area("\nCircle Area: ");
+    cout << "\nProcessing....." ;
+    sleep(2);
+    c.Circle_Area("\n\nCircle Area: ");
     cout << "\n***********";
-    c.setL_W(3.5, 4);
-    cout << "\nRectangle: Lenght= " << c.getL() << "   Width=" << c.getW();
-    c.Rectangle_Area("\nRectangle Area: ");
+    double q , t ;
+    cout << "\nEnter the size of length please : ";
+    cin >> q ;
+    cout << "Enter the size of width please : ";
+    cin >> t ;
+    c.setL_W(q, t);
+    cout << "Rectangle: Lenght= " << c.getL() << "   Width=" << c.getW();
+    cout << "\nProcessing....." ;
+    sleep(3);
+    c.Rectangle_Area("\n\nRectangle Area: ");
     // return 0;
 };
